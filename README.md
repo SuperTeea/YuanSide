@@ -3,5 +3,5 @@
 原塔ARPG
 
 Yuan is god!
-good
+good!
 
