@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmkqewkoqh6dv"]
+
+[ext_resource type="PackedScene" uid="uid://nva6g6uo8107" path="res://Super_Tea/Player/Scene/Blonde.tscn" id="1_w4u8w"]
+[ext_resource type="PackedScene" uid="uid://bgcry0xgu1vyr" path="res://Super_Tea/Tilemaps/ShipB.tscn" id="2_orsgv"]
+
+[node name="PriateShip" type="Node2D"]
+
+[node name="Blonde" parent="." instance=ExtResource("1_w4u8w")]
+position = Vector2(353, 288)
+
+[node name="ShipB" parent="." instance=ExtResource("2_orsgv")]
