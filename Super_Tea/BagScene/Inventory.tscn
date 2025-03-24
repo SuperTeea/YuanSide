@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccjua1n6fvoi2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8umi"]
+font_size = 100
+
+[node name="Inventory" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 514.0
+offset_top = -1.0
+offset_right = 714.0
+offset_bottom = 136.0
+text = "背包"
+label_settings = SubResource("LabelSettings_c8umi")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+offset_left = 144.0
+offset_top = 193.0
+offset_right = 475.0
+offset_bottom = 451.0
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 4

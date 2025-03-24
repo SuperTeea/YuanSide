@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dqeh8vugdld0"]
+
+[ext_resource type="Script" uid="uid://bhyq01tect6x7" path="res://Super_Tea/Items/Scripts/ItemData.gd" id="1_aegh6"]
+[ext_resource type="Texture2D" uid="uid://lgiux35bvqyl" path="res://Super_Tea/Items/Sprites/Firework_Rocket.png" id="2_5dref"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecwfy"]
+atlas = ExtResource("2_5dref")
+region = Rect2(10, 9.5, 150, 150.5)
+
+[resource]
+script = ExtResource("1_aegh6")
+name = "Firework"
+desc = "A firework from MC!"
+texture = SubResource("AtlasTexture_ecwfy")
+metadata/_custom_type_script = "uid://bhyq01tect6x7"

@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgf55kd31acns"]
+[gd_scene load_steps=2 format=3 uid="uid://8ly66c1xaufy"]
 
-[ext_resource type="Script" uid="uid://d4c4fxhbfs00p" path="res://Super_Tea/Items/Scripts/Itemslot.gd" id="1_2pijx"]
+[sub_resource type="GDScript" id="GDScript_34je1"]
+script/source = "extends Control
+
+var item: Control = null
+
+func _can_drop_data(position, data):
+	return item == null
+
+func _drop_data(position, data):
+	print(data)
+	print(\"dropped\")
+	var node: Control = data.node
+	if node == null:
+		return
+	# update item slot
+	if node.slot != null:
+		node.slot.item = null
+	self.item = node
+	item.slot = self
+	node.return_to_slot()
+"
 
 [node name="ItemSlot" type="PanelContainer"]
 anchors_preset = 8
@@ -12,7 +32,7 @@ offset_left = -512.0
 offset_top = -300.0
 offset_right = 512.0
 offset_bottom = 300.0
-script = ExtResource("1_2pijx")
+script = SubResource("GDScript_34je1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(80, 80)

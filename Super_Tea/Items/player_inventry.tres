@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://w4m8gf2rq6on"]
+
+[ext_resource type="Script" uid="uid://d54n5n4in3xw" path="res://Super_Tea/Items/Scripts/InventoryData.gd" id="1_kd8sb"]
+[ext_resource type="Script" uid="uid://qinmro4l7dju" path="res://Super_Tea/Items/Scripts/SlotData.gd" id="2_kd8sb"]
+[ext_resource type="Resource" uid="uid://dqeh8vugdld0" path="res://Super_Tea/Items/Firework.tres" id="3_f2rff"]
+
+[sub_resource type="Resource" id="Resource_f2rff"]
+script = ExtResource("2_kd8sb")
+itemData = ExtResource("3_f2rff")
+quantity = 3
+metadata/_custom_type_script = "uid://qinmro4l7dju"
+
+[resource]
+script = ExtResource("1_kd8sb")
+slots = Array[ExtResource("2_kd8sb")]([SubResource("Resource_f2rff"), null, null])
+metadata/_custom_type_script = "uid://d54n5n4in3xw"
