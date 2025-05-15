@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnvg3n4mfs0u7"]
+
+[ext_resource type="PackedScene" uid="uid://cuki5apodxa4" path="res://Super_Tea/GUI/ItemSlot/ItemSlot.tscn" id="1_80qhu"]
+
+[node name="ItemMenu" type="CanvasLayer"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_right = 148.0
+grow_vertical = 0
+columns = 2
+
+[node name="ItemSlot" parent="GridContainer" instance=ExtResource("1_80qhu")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ItemSlot2" parent="GridContainer" instance=ExtResource("1_80qhu")]
+layout_mode = 2

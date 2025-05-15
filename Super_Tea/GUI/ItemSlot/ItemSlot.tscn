@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuki5apodxa4"]
+
+[ext_resource type="Script" uid="uid://dvd46x7e3f6xm" path="res://Super_Tea/GUI/ItemSlot/item_slot.gd" id="1_wfpfn"]
+[ext_resource type="Resource" uid="uid://dqeh8vugdld0" path="res://Super_Tea/Items/Firework.tres" id="2_b8lyj"]
+
+[node name="ItemSlot" type="Button"]
+offset_right = 77.0
+offset_bottom = 77.0
+script = ExtResource("1_wfpfn")
+itemdata = ExtResource("2_b8lyj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 76.0
+expand_mode = 1

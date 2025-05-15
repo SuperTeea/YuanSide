@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csfx24xx5t2gn"]
+
+[ext_resource type="Script" uid="uid://lhqwa618x238" path="res://Super_Tea/Music/music.gd" id="1_6hort"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_6hort"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_6hort")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_6hort")
+bus = &"BGM"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

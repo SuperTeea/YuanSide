@@ -12,6 +12,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 514.0
 offset_top = -1.0
 offset_right = 714.0
@@ -20,6 +21,7 @@ text = "背包"
 label_settings = SubResource("LabelSettings_c8umi")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 193.0
 offset_right = 475.0
