@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseQuest" load_steps=2 format=3 uid="uid://dvoqc4vbqkgkh"]
+
+[ext_resource type="Script" uid="uid://dfqg6ac4durlj" path="res://Quests/BaseQuest.gd" id="1_atnw5"]
+
+[resource]
+script = ExtResource("1_atnw5")
+quest_name = ""
+quest_desc = ""
+reword = Array[String]([])
+metadata/_custom_type_script = "uid://dfqg6ac4durlj"

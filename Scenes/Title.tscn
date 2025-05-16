@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhwiolvx7acwu"]
+
+[ext_resource type="Theme" uid="uid://c42r8558dvmyi" path="res://addons/Themey/themes/clashy/clashy.tres" id="1_phf2g"]
+[ext_resource type="VideoStream" path="res://Assets/Videos/tower.ogv" id="1_tochr"]
+[ext_resource type="Script" uid="uid://cebn48yv7otl8" path="res://Scenes/title.gd" id="2_6khh7"]
+[ext_resource type="FontFile" uid="uid://b8twsord3ndfp" path="res://Assets/Font/字语青梅硬笔-非商用.ttf" id="4_bwrlp"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_phf2g")
+script = ExtResource("2_6khh7")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_tochr")
+autoplay = true
+loop = true
+bus = &"BGM"
+
+[node name="ChineseTitle" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -383.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TitleBG" type="RichTextLabel" parent="ChineseTitle"]
+layout_mode = 0
+offset_left = -81.0
+offset_top = 9.0
+offset_right = 289.0
+offset_bottom = 194.0
+theme_override_fonts/normal_font = ExtResource("4_bwrlp")
+theme_override_font_sizes/normal_font_size = 140
+bbcode_enabled = true
+text = "[rainbow][wave freq=2.6 amp=40]原塔[/wave][/rainbow]"
+horizontal_alignment = 2
+
+[node name="Title" type="RichTextLabel" parent="ChineseTitle"]
+layout_mode = 0
+offset_left = -85.0
+offset_top = 8.0
+offset_right = 285.0
+offset_bottom = 193.0
+theme_override_fonts/normal_font = ExtResource("4_bwrlp")
+theme_override_font_sizes/normal_font_size = 140
+bbcode_enabled = true
+text = "[wave freq=2.6 amp=40]原塔[wave]"
+horizontal_alignment = 2
+
+[node name="EnTitle" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -383.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TitleBG" type="RichTextLabel" parent="EnTitle"]
+layout_mode = 0
+offset_left = -98.0
+offset_top = 166.0
+offset_right = 272.0
+offset_bottom = 351.0
+theme_override_fonts/normal_font = ExtResource("4_bwrlp")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[rainbow][wave freq=2.6 amp=40]YuanSide[wave]"
+horizontal_alignment = 2
+
+[node name="Title" type="RichTextLabel" parent="EnTitle"]
+layout_mode = 0
+offset_left = -102.0
+offset_top = 165.0
+offset_right = 268.0
+offset_bottom = 350.0
+theme_override_fonts/normal_font = ExtResource("4_bwrlp")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[wave freq=2.6 amp=40]YuanSide[wave]"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -357.0
+offset_top = 344.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+offset_left = 70.0
+offset_top = 111.0
+offset_right = 274.0
+offset_bottom = 167.0
+text = "开始游戏"
+
+[node name="Sync" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+offset_left = 70.0
+offset_top = 187.0
+offset_right = 274.0
+offset_bottom = 246.0
+text = "同步存档"
+
+[node name="Exit" type="Button" parent="HBoxContainer"]
+offset_left = 70.0
+offset_top = 269.0
+offset_right = 274.0
+offset_bottom = 328.0
+text = "退出游戏"
+
+[connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/Sync" to="." method="_on_sync_pressed"]
+[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]

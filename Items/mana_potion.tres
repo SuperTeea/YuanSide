@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=2 format=3 uid="uid://bjdfqomcm5tpe"]
+
+[ext_resource type="Script" uid="uid://dl2migk7v5cnf" path="res://Items/BaseItem.gd" id="1_g1wrq"]
+
+[resource]
+script = ExtResource("1_g1wrq")
+name = "魔法药水"
+desc = "回复满魔法"
+metadata/_custom_type_script = "uid://dl2migk7v5cnf"

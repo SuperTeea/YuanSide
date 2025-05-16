@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm6xglq2yfiku"]
+
+[ext_resource type="Script" uid="uid://c3t76xfg7ms6a" path="res://GlobalR/r.gd" id="1_2irln"]
+[ext_resource type="Script" uid="uid://sms8qw2vjmxk" path="res://GlobalR/items.gd" id="2_n0jen"]
+[ext_resource type="Script" uid="uid://b4i8gj4u00bwl" path="res://GlobalR/user.gd" id="3_0ngc8"]
+
+[node name="R" type="Node"]
+script = ExtResource("1_2irln")
+
+[node name="items" type="Node" parent="."]
+script = ExtResource("2_n0jen")
+
+[node name="User" type="Node" parent="."]
+script = ExtResource("3_0ngc8")
