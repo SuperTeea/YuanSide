@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="YuanSide"
-run/main_scene="uid://bgje6gd6y1dym"
+run/main_scene="uid://dhwiolvx7acwu"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

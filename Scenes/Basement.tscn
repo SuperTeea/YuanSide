@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://qxma1wbqkvkc"]
+
+[ext_resource type="Script" uid="uid://bjpua8v7fehxf" path="res://Super_Tea/Music/music_switcher.gd" id="1_tj81a"]
+[ext_resource type="PackedScene" uid="uid://nva6g6uo8107" path="res://Super_Tea/Player/Scene/Blonde.tscn" id="2_863dn"]
+[ext_resource type="AudioStream" uid="uid://sjv8c17fudlf" path="res://Assets/Musics/Bard_Dance.ogg" id="2_sqi4h"]
+[ext_resource type="PackedScene" uid="uid://bgcry0xgu1vyr" path="res://Super_Tea/Tilemaps/ShipB.tscn" id="3_sqi4h"]
+
+[node name="Basement" type="Node2D"]
+
+[node name="MusicSwitcher" type="Node" parent="."]
+script = ExtResource("1_tj81a")
+music = ExtResource("2_sqi4h")
+metadata/_custom_type_script = "uid://bjpua8v7fehxf"
+
+[node name="Blonde" parent="." instance=ExtResource("2_863dn")]
+position = Vector2(353, 288)
+
+[node name="ShipB" parent="." instance=ExtResource("3_sqi4h")]

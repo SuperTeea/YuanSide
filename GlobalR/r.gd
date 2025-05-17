@@ -6,6 +6,8 @@ signal levelup
 @onready var user : User = $User
 @onready var items = $items
 
+@export var current_Scene : String = "res://Scenes/Basement.tscn"
+
 # 规范 hp
 func _regulate_hp():
 	if user.hp <= 0:

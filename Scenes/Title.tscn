@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhwiolvx7acwu"]
+[gd_scene load_steps=7 format=3 uid="uid://dhwiolvx7acwu"]
 
 [ext_resource type="Theme" uid="uid://c42r8558dvmyi" path="res://addons/Themey/themes/clashy/clashy.tres" id="1_phf2g"]
-[ext_resource type="VideoStream" path="res://Assets/Videos/tower.ogv" id="1_tochr"]
+[ext_resource type="VideoStream" uid="uid://bfk1mn5gn0y5n" path="res://Assets/Videos/tower.ogv" id="1_tochr"]
 [ext_resource type="Script" uid="uid://cebn48yv7otl8" path="res://Scenes/title.gd" id="2_6khh7"]
 [ext_resource type="FontFile" uid="uid://b8twsord3ndfp" path="res://Assets/Font/字语青梅硬笔-非商用.ttf" id="4_bwrlp"]
+[ext_resource type="Script" uid="uid://bjpua8v7fehxf" path="res://Super_Tea/Music/music_switcher.gd" id="5_84h87"]
+[ext_resource type="AudioStream" uid="uid://dgwi8dki31jch" path="res://Assets/Musics/Main_Theme.ogg" id="6_71b5n"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -16,6 +18,7 @@ theme = ExtResource("1_phf2g")
 script = ExtResource("2_6khh7")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("1_tochr")
@@ -119,11 +122,58 @@ offset_bottom = 246.0
 text = "同步存档"
 
 [node name="Exit" type="Button" parent="HBoxContainer"]
+layout_mode = 0
 offset_left = 70.0
 offset_top = 269.0
 offset_right = 274.0
 offset_bottom = 328.0
 text = "退出游戏"
+
+[node name="MusicSwitcher" type="Node" parent="."]
+script = ExtResource("5_84h87")
+music = ExtResource("6_71b5n")
+metadata/_custom_type_script = "uid://bjpua8v7fehxf"
+
+[node name="ServerSettings" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+offset_right = 443.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="ServerSettings"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 119.0
+offset_bottom = 44.0
+text = "服务器地址："
+
+[node name="ServerIP" type="LineEdit" parent="ServerSettings"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 16.0
+offset_right = 288.0
+offset_bottom = 51.0
+text = "10.10.65.38"
+
+[node name="Label2" type="Label" parent="ServerSettings"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 57.0
+offset_right = 123.0
+offset_bottom = 84.0
+text = "用户名："
+
+[node name="UserName" type="LineEdit" parent="ServerSettings"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 59.0
+offset_right = 288.0
+offset_bottom = 94.0
+text = "tester"
 
 [connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/Sync" to="." method="_on_sync_pressed"]

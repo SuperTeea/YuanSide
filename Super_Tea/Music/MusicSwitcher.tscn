@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfc7npikwjlie"]
+
+[ext_resource type="Script" uid="uid://bjpua8v7fehxf" path="res://Super_Tea/Music/music_switcher.gd" id="1_72jt2"]
+
+[node name="MusicSwitcher" type="Node"]
+script = ExtResource("1_72jt2")

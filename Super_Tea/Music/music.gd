@@ -11,14 +11,9 @@ var cur_time = 0.0
 
 # 切换到指定曲目，并自动播放 目前这个方法只支持MP3, OGG
 # 参数是路径 e.g. res://yuan_is_god.mp3
-func switch(path : String):
-	var music_resource : AudioStream
+func switch(audio : AudioStream):
 	cur_time = 0.0
-	if path.ends_with('mp3'):
-		music_resource = AudioStreamMP3.load_from_file(path)
-	elif path.ends_with('ogg'):
-		music_resource = AudioStreamOggVorbis.load_from_file(path)
-	$AudioStreamPlayer.stream = music_resource
+	$AudioStreamPlayer.stream = audio
 	play()
 
 # 暂停音乐
