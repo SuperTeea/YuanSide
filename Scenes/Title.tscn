@@ -144,7 +144,7 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -132.0
+offset_top = -125.0
 offset_right = 443.0
 grow_vertical = 0
 
@@ -183,3 +183,5 @@ text = "tester"
 [connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/Sync" to="." method="_on_sync_pressed"]
 [connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="text_changed" from="ServerSettings/ServerIP" to="." method="_on_server_ip_text_changed"]
+[connection signal="text_changed" from="ServerSettings/UserName" to="." method="_on_user_name_text_changed"]

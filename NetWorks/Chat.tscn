@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwij3yd1by6st"]
+
+[ext_resource type="Script" uid="uid://bbkbl8img52wa" path="res://NetWorks/chat.gd" id="1_da78h"]
+
+[node name="Chat" type="Control"]
+z_index = 50
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("1_da78h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -123.0
+offset_right = 393.0
+offset_bottom = 123.0
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 128.0
+offset_right = 390.0
+offset_bottom = 170.0
+grow_vertical = 2
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

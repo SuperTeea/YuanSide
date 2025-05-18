@@ -8,6 +8,4 @@ extends Resource
 @export var MAX_mp : int
 @export var MAX_exp : int
 
-@export var current_level : String	# 当前的关卡
-
 @export var items : Array[String]	# 目前栏内的物品

@@ -4,9 +4,63 @@ signal death
 signal levelup
 
 @onready var user : User = $User
-@onready var items = $items
 
 @export var current_Scene : String = "res://Scenes/Basement.tscn"
+
+var ServerIP : String = '127.0.0.1'
+var ServerPort : int = 8888
+var UserName : String = 'Test'
+
+func _ready() -> void:
+	load_profile()
+
+## 保存存档数据
+func save_profile():
+	
+	var profile = SaveProfile.new()
+	profile.hp = user.hp
+	profile.mp = user.mp
+	profile.exp = user.exp
+	profile.MAX_hp = user.MAX_hp
+	profile.MAX_mp = user.MAX_mp
+	profile.MAX_exp = user.MAX_exp
+	profile.items = user.items
+
+	
+	ResourceSaver.save(profile, "user://save.tres")
+	print('Saved!')
+
+## 保存配置数据
+func save_config():
+	var profile = ConfigProfile.new()
+	profile.ServerIP = ServerIP
+	profile.UserName = UserName
+	profile.current_Scene = current_Scene
+	ResourceSaver.save(profile, "user://config.tres")
+	print('Saved!')
+	
+# 加载
+func load_profile():
+	if not ResourceLoader.exists("user://save.tres"):
+		pass
+	var profile = ResourceLoader.load("user://save.tres") as SaveProfile
+	user.hp = profile.hp
+	user.mp = profile.mp
+	user.exp = profile.exp
+	user.MAX_hp = profile.MAX_hp
+	user.MAX_mp = profile.MAX_mp
+	user.MAX_exp = profile.MAX_exp
+	user.items = profile.items
+	
+	if not ResourceLoader.exists("user://config.tres"):
+		pass
+	profile = ResourceLoader.load("user://config.tres") as ConfigProfile
+	current_Scene = profile.current_Scene
+	ServerIP = profile.ServerIP
+	UserName = profile.UserName
+	
+	print('Loaded!')
+
 
 # 规范 hp
 func _regulate_hp():
