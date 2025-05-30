@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgj5krht81ugi"]
+
+[ext_resource type="Script" uid="uid://ci75u2snp2t6l" path="res://Scenes/Switch/switch.gd" id="1_c5yrt"]
+[ext_resource type="Texture2D" uid="uid://btk7b2lfubwhk" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_g65jv"]
+[ext_resource type="AudioStream" uid="uid://cgdk8q74afmck" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Magic1.wav" id="3_sln40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5yrt"]
+atlas = ExtResource("1_g65jv")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sln40"]
+atlas = ExtResource("1_g65jv")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_47gmp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5yrt")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sln40")
+}],
+"loop": true,
+"name": &"deactivated",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbken"]
+size = Vector2(16, 9)
+
+[node name="Switch" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_c5yrt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_47gmp")
+animation = &"deactivated"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_xbken")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sln40")

@@ -5,11 +5,18 @@ signal levelup
 
 @onready var user : User = $User
 
-@export var current_Scene : String = "res://Scenes/Basement.tscn"
+@export var current_Scene : String = "res://Scenes/game_scene.tscn"
 
 var ServerIP : String = '127.0.0.1'
 var ServerPort : int = 8888
 var UserName : String = 'Test'
+
+var player_spawn_position: Vector2
+# Called when the node enters the scene tree for the first time.
+
+var player_hp: int = 3 #玩家的血量
+
+var opened_chests: Array[String] = []
 
 func _ready() -> void:
 	load_profile()
@@ -42,7 +49,7 @@ func save_config():
 # 加载
 func load_profile():
 	if not ResourceLoader.exists("user://save.tres"):
-		pass
+		return
 	var profile = ResourceLoader.load("user://save.tres") as SaveProfile
 	user.hp = profile.hp
 	user.mp = profile.mp
@@ -53,7 +60,7 @@ func load_profile():
 	user.items = profile.items
 	
 	if not ResourceLoader.exists("user://config.tres"):
-		pass
+		return
 	profile = ResourceLoader.load("user://config.tres") as ConfigProfile
 	current_Scene = profile.current_Scene
 	ServerIP = profile.ServerIP

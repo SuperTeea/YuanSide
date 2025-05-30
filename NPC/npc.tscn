@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dclfn0641kfy6"]
+
+[ext_resource type="Script" uid="uid://diiu4cqol1m3h" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
+[ext_resource type="Texture2D" uid="uid://bejkvk0kagtd7" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/SpriteSheet.png" id="2_0s07e"]
+[ext_resource type="Texture2D" uid="uid://bnrwiwdx01uf" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_0s07e"]
+[ext_resource type="Texture2D" uid="uid://bko4e7vksxwqp" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/Faceset.png" id="4_aqj1y"]
+[ext_resource type="AudioStream" uid="uid://c1hk0l263qnnt" path="res://Ninja Adventure - Asset Pack/Sounds/Game/MiniImpact.wav" id="5_n8r46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqj1y"]
+atlas = ExtResource("2_0s07e")
+region = Rect2(0, 0, 16.7821, 17.763)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8r46"]
+size = Vector2(14, 15)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8r46"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aqj1y"]
+font_size = 28
+
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
+collision_mask = 14
+script = ExtResource("1_bjna2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_aqj1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_n8r46")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueBoxTexture" type="TextureRect" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 421.0
+offset_right = 319.0
+offset_bottom = 479.0
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("3_0s07e")
+
+[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogueBoxTexture"]
+layout_mode = 0
+offset_left = 5.13513
+offset_top = 13.7838
+offset_right = 45.1351
+offset_bottom = 53.7838
+texture = ExtResource("4_aqj1y")
+
+[node name="DialogueLabel" type="Label" parent="CanvasLayer"]
+offset_left = 204.0
+offset_top = 469.0
+offset_right = 1104.0
+offset_bottom = 614.0
+text = "hello, world!"
+label_settings = SubResource("LabelSettings_n8r46")
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 41.0
+offset_top = 426.0
+offset_right = 274.0
+offset_bottom = 460.0
+text = "Blue Ninja"
+label_settings = SubResource("LabelSettings_aqj1y")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n8r46")

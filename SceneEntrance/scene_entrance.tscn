@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx8x4dhw2qkwd"]
+
+[ext_resource type="Script" uid="uid://br0i3mocmakp5" path="res://SceneEntrance/scene_entrance.gd" id="1_6rkgu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04h35"]
+size = Vector2(16, 12)
+
+[node name="SceneEntrance" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_6rkgu")
+next_scene = "res://Scenes/DungeonScene/dungeon_scene.tscn"
+player_spawn_position = Vector2(-56, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_04h35")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
