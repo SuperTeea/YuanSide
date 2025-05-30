@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://bdly76li14e43"]
 
-[ext_resource type="Script" uid="uid://dc5t8wb6syapr" path="res://Scenes/Players/player_1.gd" id="1_ymh3i"]
+[ext_resource type="Script" uid="uid://dc5t8wb6syapr" path="res://Character/Players/player_1.gd" id="1_ymh3i"]
 [ext_resource type="Texture2D" uid="uid://b4at253a5e3lv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SeparateAnim/Attack.png" id="2_veno4"]
 [ext_resource type="Texture2D" uid="uid://df27rvuyhe0e4" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SeparateAnim/Walk.png" id="2_ymh3i"]
 [ext_resource type="Texture2D" uid="uid://ba8c8ykg6th1m" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SpriteSheet.png" id="3_5b4ba"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dclfn0641kfy6"]
 
-[ext_resource type="Script" uid="uid://diiu4cqol1m3h" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
+[ext_resource type="Script" uid="uid://diiu4cqol1m3h" path="res://NPC/npc.gd" id="1_bjna2"]
 [ext_resource type="Texture2D" uid="uid://bejkvk0kagtd7" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/SpriteSheet.png" id="2_0s07e"]
 [ext_resource type="Texture2D" uid="uid://bnrwiwdx01uf" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_0s07e"]
 [ext_resource type="Texture2D" uid="uid://bko4e7vksxwqp" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/Faceset.png" id="4_aqj1y"]

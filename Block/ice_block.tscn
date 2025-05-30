@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd8gcsqs2bvvf"]
 
-[ext_resource type="PackedScene" uid="uid://dxpwy5ryojl27" path="res://Scenes/Block/block.tscn" id="1_4tccs"]
+[ext_resource type="PackedScene" uid="uid://dxpwy5ryojl27" path="res://Block/block.tscn" id="1_4tccs"]
 [ext_resource type="Texture2D" uid="uid://btk7b2lfubwhk" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="2_8ron8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k54aw"]
