@@ -12,6 +12,8 @@ grow_vertical = 2
 script = ExtResource("1_da78h")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 999
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -22,6 +24,7 @@ offset_bottom = 123.0
 grow_vertical = 2
 
 [node name="LineEdit" type="LineEdit" parent="."]
+z_index = 999
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

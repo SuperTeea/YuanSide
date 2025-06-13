@@ -26,7 +26,6 @@ func _add_message(user : String, message):
 	else:
 		label.append_text('[color=green]' + user + '[/color] : ')
 	label.append_text(message + '\n')
-
 func test():
 	_add_message('YuanGod', '666')
 

@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Music="*res://Super_Tea/Music/music.tscn"
-R="*res://GlobalR/R.tscn"
 Chat="*res://NetWorks/Chat.tscn"
+R="*res://GlobalR/R.tscn"
 NetWork="*res://NetWorks/NetWork.tscn"
 
 [display]

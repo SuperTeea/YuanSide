@@ -3,12 +3,25 @@ extends Control
 @onready var r = R
 
 func _ready() -> void:
+	await get_tree().root.ready  # 等待父节点就绪
 	$ServerSettings/ServerIP.text = R.ServerIP
 	$ServerSettings/UserName.text = R.UserName
-
+	
+	if OS.has_feature("dedicated_server"):
+		print('I am server.')
+		var root = get_tree().root
+		for scene in R.Scenes:
+			var sc = scene.instantiate()
+			sc.name = 'GameScene'
+			root.add_child(sc)
+			sc.createServer()
+		#get_tree().change_scene_to_file.call_deferred(R.current_Scene)
+		print('服务器启动完成！')
+		queue_free.call_deferred()
 ## 开始游戏(读取存档并开始)
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file.call_deferred(R.current_Scene)
+	#get_tree().change_scene_to_file.call_deferred("res://Scenes/DungeonScene/dungeon_scene.tscn")
 
 ## 同步存档(通过服务器)
 func _on_sync_pressed() -> void:

@@ -7,6 +7,15 @@ signal levelup
 
 @export var current_Scene : String = "res://Scenes/game_scene.tscn"
 
+const Scenes = [
+	preload("res://Scenes/game_scene.tscn")
+]
+
+const ScenePort = {
+	'GameScene' : 8887,
+	'DungeonScene' : 8886
+}
+
 var ServerIP : String = '127.0.0.1'
 var ServerPort : int = 8888
 var UserName : String = 'Test'
@@ -19,7 +28,10 @@ var player_hp: int = 3 #玩家的血量
 var opened_chests: Array[String] = []
 
 func _ready() -> void:
-	load_profile()
+	load_config()
+
+
+
 
 ## 保存存档数据
 func save_profile():
@@ -58,10 +70,11 @@ func load_profile():
 	user.MAX_mp = profile.MAX_mp
 	user.MAX_exp = profile.MAX_exp
 	user.items = profile.items
-	
+
+func load_config():
 	if not ResourceLoader.exists("user://config.tres"):
 		return
-	profile = ResourceLoader.load("user://config.tres") as ConfigProfile
+	var profile = ResourceLoader.load("user://config.tres") as ConfigProfile
 	current_Scene = profile.current_Scene
 	ServerIP = profile.ServerIP
 	UserName = profile.UserName
@@ -116,3 +129,6 @@ func set_exp(value : int):
 func modify_exp(value : int):
 	user.exp += value
 	_regulate_exp()
+
+func getSceneName(path : String) -> String:
+	return path.get_file().get_basename()

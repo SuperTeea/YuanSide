@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://doh60j5pa0ssj"]
+[gd_scene load_steps=26 format=3 uid="uid://doh60j5pa0ssj"]
 
-[ext_resource type="Script" uid="uid://fqmcyceghw6l" path="res://Scenes/Enemies/slime_enemy.gd" id="1_5uyk1"]
+[ext_resource type="Script" uid="uid://fqmcyceghw6l" path="res://Enemies/slime_enemy.gd" id="1_5uyk1"]
 [ext_resource type="Texture2D" uid="uid://bueytyldgbeo6" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime3/Slime3.png" id="1_p6sbt"]
 [ext_resource type="AudioStream" uid="uid://dfui4ky5aiivx" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Hit1.wav" id="3_sv1en"]
 
@@ -167,6 +167,14 @@ scale_min = 2.0
 scale_max = 4.0
 color = Color(0.703155, 0.861037, 0.918593, 1)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_h1vsp"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:HP")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="SlimeEnemy" type="CharacterBody2D"]
 collision_layer = 16
 script = ExtResource("1_5uyk1")
@@ -197,5 +205,8 @@ amount = 60
 one_shot = true
 explosiveness = 0.8
 process_material = SubResource("ParticleProcessMaterial_sv1en")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_h1vsp")
 
 [connection signal="body_entered" from="PlayerDetectArea2D" to="." method="_on_player_detect_area_2d_body_entered"]
