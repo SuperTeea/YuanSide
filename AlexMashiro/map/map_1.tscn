@@ -1,11 +1,19 @@
-[gd_scene load_steps=19 format=4 uid="uid://banwwa1ybnqxa"]
+[gd_scene load_steps=31 format=4 uid="uid://banwwa1ybnqxa"]
 
-[ext_resource type="Texture2D" uid="uid://kogeurku4dp4" path="res://content/tileset/game2/tileset_animated.png" id="1_0qdgi"]
-[ext_resource type="Texture2D" uid="uid://c7hfbcutqpt1r" path="res://content/tileset/game2/tileset_floor.png" id="2_7yqvf"]
-[ext_resource type="Texture2D" uid="uid://b66q3xkukdl2g" path="res://content/tileset/game2/tileset_interior_floor.png" id="3_fod4y"]
-[ext_resource type="Texture2D" uid="uid://bwl20q86oa8or" path="res://content/tileset/game2/tileset_village_abandoned.png" id="4_ce0by"]
-[ext_resource type="Texture2D" uid="uid://d2ucte1r2j53l" path="res://content/tileset/game2/tileset_wall_simple.png" id="5_5g8ky"]
+[ext_resource type="Texture2D" uid="uid://kogeurku4dp4" path="res://AlexMashiro/tileset/game2/tileset_animated.png" id="1_0qdgi"]
+[ext_resource type="Texture2D" uid="uid://c7hfbcutqpt1r" path="res://AlexMashiro/tileset/game2/tileset_floor.png" id="2_7yqvf"]
+[ext_resource type="Texture2D" uid="uid://b66q3xkukdl2g" path="res://AlexMashiro/tileset/game2/tileset_interior_floor.png" id="3_fod4y"]
+[ext_resource type="Texture2D" uid="uid://bwl20q86oa8or" path="res://AlexMashiro/tileset/game2/tileset_village_abandoned.png" id="4_ce0by"]
+[ext_resource type="Texture2D" uid="uid://d2ucte1r2j53l" path="res://AlexMashiro/tileset/game2/tileset_wall_simple.png" id="5_5g8ky"]
 [ext_resource type="PackedScene" uid="uid://bjgy3n4cif23m" path="res://Character/CharScene/character_body_2d.tscn" id="6_7yqvf"]
+[ext_resource type="PackedScene" uid="uid://dclfn0641kfy6" path="res://NPC/npc.tscn" id="7_6svng"]
+[ext_resource type="Texture2D" uid="uid://dejxhvouxem12" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Master/SpriteSheet.png" id="8_kmcn0"]
+[ext_resource type="Texture2D" uid="uid://cj6edq8nw7nym" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Master/Faceset.png" id="9_0f4nv"]
+[ext_resource type="Texture2D" uid="uid://6pnxqbmmm1uq" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Child/SpriteSheet.png" id="10_lwwyr"]
+[ext_resource type="Texture2D" uid="uid://dfi6erdtl2msi" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Child/Faceset.png" id="11_1yn3a"]
+[ext_resource type="Texture2D" uid="uid://rdcrcyhfihqu" path="res://Ninja Adventure - Asset Pack/Actor/Characters/EggBoy/SpriteSheet.png" id="12_gbjfx"]
+[ext_resource type="Texture2D" uid="uid://baouddgeq1u5w" path="res://Ninja Adventure - Asset Pack/Actor/Characters/EggBoy/Faceset.png" id="13_aldfw"]
+[ext_resource type="Texture2D" uid="uid://ctg76gkw4lp50" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Villager/SpriteSheet.png" id="14_hr6gx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6uly"]
 texture = ExtResource("1_0qdgi")
@@ -2216,6 +2224,22 @@ sources/2 = SubResource("TileSetAtlasSource_48xnl")
 sources/3 = SubResource("TileSetAtlasSource_m7kr3")
 sources/4 = SubResource("TileSetAtlasSource_4ql6g")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fxl6"]
+atlas = ExtResource("12_gbjfx")
+region = Rect2(0, 0, 16.7821, 17.763)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64fng"]
+atlas = ExtResource("8_kmcn0")
+region = Rect2(0, 0, 16.7821, 17.763)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2re8"]
+atlas = ExtResource("10_lwwyr")
+region = Rect2(0, 0, 16.7821, 17.763)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otqoa"]
+atlas = ExtResource("14_hr6gx")
+region = Rect2(0, 0, 16.7821, 17.763)
+
 [node name="map1" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -2228,3 +2252,85 @@ tile_set = SubResource("TileSet_7v3u8")
 
 [node name="CharacterBody2D" parent="TileMapLayer2" instance=ExtResource("6_7yqvf")]
 position = Vector2(31, 198)
+
+[node name="NPC1" parent="TileMapLayer2" instance=ExtResource("7_6svng")]
+position = Vector2(24, 150)
+dialogue_lines = Array[String](["欢迎来到原塔！", "在这里你将体验到战斗成长的乐趣", "背景介绍：原塔再次异动", "你被任命为现任探索小队队长", "而上任队长是你的父亲", "现在，开始你的冒险吧！"])
+
+[node name="Sprite2D" parent="TileMapLayer2/NPC1" index="0"]
+texture = SubResource("AtlasTexture_7fxl6")
+
+[node name="NPCIcon" parent="TileMapLayer2/NPC1/CanvasLayer/DialogueBoxTexture" index="0"]
+texture = ExtResource("13_aldfw")
+
+[node name="DialogueLabel" parent="TileMapLayer2/NPC1/CanvasLayer" index="1"]
+text = "欢迎"
+
+[node name="NameLabel" parent="TileMapLayer2/NPC1/CanvasLayer" index="2"]
+text = "向导"
+
+[node name="NPC2" parent="TileMapLayer2" instance=ExtResource("7_6svng")]
+position = Vector2(144, 59)
+dialogue_lines = Array[String](["黑塔的潜在威胁我们不可能不管", "探索它是我们的使命", "出发吧！勇士"])
+
+[node name="Sprite2D" parent="TileMapLayer2/NPC2" index="0"]
+texture = SubResource("AtlasTexture_64fng")
+
+[node name="CollisionShape2D" parent="TileMapLayer2/NPC2" index="1"]
+position = Vector2(0.5, -0.5)
+
+[node name="NPCIcon" parent="TileMapLayer2/NPC2/CanvasLayer/DialogueBoxTexture" index="0"]
+texture = ExtResource("9_0f4nv")
+
+[node name="DialogueLabel" parent="TileMapLayer2/NPC2/CanvasLayer" index="1"]
+text = "孩子"
+
+[node name="NameLabel" parent="TileMapLayer2/NPC2/CanvasLayer" index="2"]
+text = "老剑师"
+
+[node name="NPC3" parent="TileMapLayer2" instance=ExtResource("7_6svng")]
+position = Vector2(363, 131)
+dialogue_lines = Array[String](["大哥哥，我们等你回来"])
+
+[node name="Sprite2D" parent="TileMapLayer2/NPC3" index="0"]
+position = Vector2(-2.5, 2.25)
+scale = Vector2(0.6875, 0.735294)
+texture = SubResource("AtlasTexture_d2re8")
+
+[node name="CollisionShape2D" parent="TileMapLayer2/NPC3" index="1"]
+position = Vector2(-2.5, 2.5)
+
+[node name="NPCIcon" parent="TileMapLayer2/NPC3/CanvasLayer/DialogueBoxTexture" index="0"]
+texture = ExtResource("11_1yn3a")
+
+[node name="DialogueLabel" parent="TileMapLayer2/NPC3/CanvasLayer" index="1"]
+text = "大哥哥"
+
+[node name="NameLabel" parent="TileMapLayer2/NPC3/CanvasLayer" index="2"]
+text = "小清"
+
+[node name="AudioStreamPlayer2D" parent="TileMapLayer2/NPC3" index="3"]
+position = Vector2(-2, 2)
+
+[node name="NPC4" parent="TileMapLayer2" instance=ExtResource("7_6svng")]
+position = Vector2(374, 136)
+dialogue_lines = Array[String](["我以后要想大哥哥一样"])
+
+[node name="Sprite2D" parent="TileMapLayer2/NPC4" index="0"]
+position = Vector2(-2, 1.75)
+scale = Vector2(0.75, 0.794118)
+texture = SubResource("AtlasTexture_otqoa")
+
+[node name="CollisionShape2D" parent="TileMapLayer2/NPC4" index="1"]
+position = Vector2(-2, 3)
+
+[node name="DialogueLabel" parent="TileMapLayer2/NPC4/CanvasLayer" index="1"]
+text = "大哥哥"
+
+[node name="NameLabel" parent="TileMapLayer2/NPC4/CanvasLayer" index="2"]
+text = "小江"
+
+[editable path="TileMapLayer2/NPC1"]
+[editable path="TileMapLayer2/NPC2"]
+[editable path="TileMapLayer2/NPC3"]
+[editable path="TileMapLayer2/NPC4"]

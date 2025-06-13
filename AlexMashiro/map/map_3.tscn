@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://blw75plje8mcs"]
+[gd_scene load_steps=25 format=4 uid="uid://blw75plje8mcs"]
 
 [ext_resource type="Texture2D" uid="uid://b10xuhkk4nwy5" path="res://AlexMashiro/tileset/game3/decorative.png" id="1_yn1q3"]
 [ext_resource type="Texture2D" uid="uid://c4knydsdxcv0e" path="res://AlexMashiro/tileset/game3/mainlevbuild.png" id="2_hgihd"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dmyail7tprn6c" path="res://AlexMashiro/tileset/game3/torch_3.png" id="4_0gxvw"]
 [ext_resource type="Texture2D" uid="uid://b67kpiikc76xo" path="res://AlexMashiro/tileset/game3/torch_2.png" id="5_qvw15"]
 [ext_resource type="Texture2D" uid="uid://dvd7ia3hd4gya" path="res://AlexMashiro/tileset/game3/torch_1.png" id="6_lvh42"]
+[ext_resource type="PackedScene" uid="uid://dclfn0641kfy6" path="res://NPC/npc.tscn" id="7_jh2ks"]
+[ext_resource type="Texture2D" uid="uid://kq4g8ruardco" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GladiatorBlue/SpriteSheet.png" id="8_3pptu"]
+[ext_resource type="Texture2D" uid="uid://bny2xs5xixnut" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GladiatorBlue/Faceset.png" id="9_0c78k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gxvw"]
 texture = ExtResource("1_yn1q3")
@@ -2367,6 +2370,10 @@ sources/4 = SubResource("TileSetAtlasSource_bn1m4")
 sources/5 = SubResource("TileSetAtlasSource_2888w")
 sources/6 = SubResource("TileSetAtlasSource_b5rda")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_skiod"]
+atlas = ExtResource("8_3pptu")
+region = Rect2(0, 0, 16.7821, 17.763)
+
 [node name="Map3" type="Node2D"]
 position = Vector2(-447, 443)
 
@@ -2381,3 +2388,21 @@ tile_set = SubResource("TileSet_b5rda")
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAP7/BQAAAAAAAAALAP7/BQAAAAAAAAARAP7/BQAAAAAAAADq//7/BQAAAAAAAADf/wcABgAGAAIAAADk/wYABgAAAAQAAAAHAP7/BgACAAEAAAD0/wwABgADAAQAAAD//xIABgAJAAcAAAAFABEABgAKAAgAAAD4/xMABgAJAAkAAAD1/xAABgAJAAwAAAD0/+r/BgAAAAoAAAD///X/BgAFAAcAAADz//b/BgADAAQAAAD//+r/BgAAAAYAAAD+//H/BgAJAAcAAADz/+7/BgAJAAcAAAD7/+r/BgAJAAkAAAD1//b/BgALAAEAAAAAAO7/BgANAAEAAAD6//j/BgAKAAEAAABFAAMABgAFAAcAAABGAAwABgAJAAcAAABHABIABgAKAAgAAAA+ABAABgAJAAkAAAA7AAwABQAAAAAAAABBAAwABQAAAAAAAAAvAP7/BQAAAAAAAABCAP7/AgAAAAAAAABEAO3/AgAAAAAAAAA/AO3/BQAAAAAAAAA2ANf/BQAAAAAAAAA6ANf/BQAAAAAAAAAhAO3/BQAAAAAAAAAkAA4AAgAAAAAAAAA9AP7/BgACAAEAAAAfABAAAQADAAYAAAAfAA8AAQADAAYAAAAfAA4AAQADAAYAAAAfAA0AAQADAAYAAAAnABAABgAJAAwAAAAoAA4ABgAJAAoAAABGAPT/BgAAAAoAAABIAPL/BgAJAAwAAABMAO7/BgAFAAcAAABMAPP/BgAJAAcAAABDAPX/BgAKAAgAAABKAPX/BgAKAAsAAAA+APH/BgALAAEAAAAsAPL/BgALAAEAAAAmAPD/BgAKAAEAAAAcAPD/BgAKAAEAAAA0APH/BgANAAEAAAA6APL/BgANAAEAAABEAPL/BgANAAEAAAAwAOP/BgACAAEAAAAwANv/BgACAAEAAABAAOP/BQAAAAAAAABAANv/BQAAAAAAAAAwAOX/BgAAAAYAAAA+ANr/BgAFAAcAAAAyANr/BgADAAQAAAAvAN//BgAAAAQAAAA+AOD/BgAAAAYAAAA9AOX/BgAAAAQAAAAxAN3/BgAJAAcAAABBAOX/BgAJAAoAAABBAN7/BgAKAAgAAAAzAOb/BgAFAAIAAAAyAOH/BgAMAAEAAAA8AN7/BgAMAAEAAABDAOH/BgAMAAEAAAA1AOX/BgANAAEAAAA1ANv/BgANAAEAAAA/AN7/BgAKAAEAAAAtAAIABgAKAAEAAAA9AAEABgAKAAEAAAAzAAcABgAMAAEAAABEAAUABgANAAEAAABGAP//BgANAAEAAAAlAAIABgAKAAEAAAAhAAQABgAKAAEAAAAZAAUABgAGAAIAAAAiAAUABgAGAAIAAAAuAA8ABgALAAEAAAAyABMABgALAAEAAAA4AA8ABgANAAEAAAAyAA0ABgANAAEAAABEAAwABgAKAAEAAABNABMABgAMAAEAAABBABAABgAMAAEAAAA1AAEABgAMAAEAAAA2AAMABgAGAAIAAAD//wIABgAMAAEAAAAFAA4ABgAMAAEAAAAIAAIABgANAAEAAADu/wEABgANAAEAAADo/wUABgANAAEAAADn/wEABgAKAAEAAADg/wQABgAKAAEAAAAQAAIABgAMAAEAAAD//w8ABgAMAAEAAAD7/xIABgAMAAEAAAD3/+z/BgAGAAIAAAA=")
 tile_set = SubResource("TileSet_v0evi")
+
+[node name="NPC" parent="TileMapLayer3" instance=ExtResource("7_jh2ks")]
+position = Vector2(904, -657)
+dialogue_lines = Array[String](["高层动荡，非汝等可至", "就此止步"])
+
+[node name="Sprite2D" parent="TileMapLayer3/NPC" index="0"]
+texture = SubResource("AtlasTexture_skiod")
+
+[node name="NPCIcon" parent="TileMapLayer3/NPC/CanvasLayer/DialogueBoxTexture" index="0"]
+texture = ExtResource("9_0c78k")
+
+[node name="DialogueLabel" parent="TileMapLayer3/NPC/CanvasLayer" index="1"]
+text = "止步"
+
+[node name="NameLabel" parent="TileMapLayer3/NPC/CanvasLayer" index="2"]
+text = "铁甲小宝"
+
+[editable path="TileMapLayer3/NPC"]
