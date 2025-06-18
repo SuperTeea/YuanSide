@@ -2,7 +2,7 @@ extends Node2D
 @onready var players: Node = $Players
 @onready var enemys: Node = $Enemys
 
-const PLAYER = preload("res://Character/Players/player1.tscn")
+const PLAYER = preload("res://Character/Players/Onlineplayer.tscn")
 const ENEMY = preload("res://Enemies/slime_enemy.tscn")
 @export var enemy_spawn = [Vector2(25,-25), Vector2(-132,66), Vector2(-48,74), Vector2(75, -133)]
 
@@ -43,13 +43,14 @@ func add_player(id : int):
 	players.add_child(player)
 
 
-# 删除一个玩家
+# 删除一个玩家dsadwasd
 func del_player(id : int):
 	var player = players.get_node(str(id))
 	print('正在删除 ', player)
 	pos[id2name.get(id,'Unamed')] = player.position
 	player.queue_free()
 
+@rpc("any_peer","reliable",'call_remote')
 func spawn_enemy():
 	for child in enemys.get_children():
 		child.die()
@@ -83,6 +84,7 @@ func joinServer():
 func setName(name : String, id : int):
 	id2name[id] = name
 
-func _on_refresh_enemy_timeout() -> void:
-	if multiplayer.is_server():
-		spawn_enemy()
+
+## 开关开的时候生成怪物
+func _on_switch_switch_activated() -> void:
+	rpc_id(1,'spawn_enemy')

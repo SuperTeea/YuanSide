@@ -2,10 +2,13 @@ extends Control
 
 @onready var r = R
 
+var singlePlayer : bool = true
+
 func _ready() -> void:
 	await get_tree().root.ready  # 等待父节点就绪
 	$ServerSettings/ServerIP.text = R.ServerIP
 	$ServerSettings/UserName.text = R.UserName
+	$HTTPRequest.request_completed.connect(_on_request_completed)
 	
 	if OS.has_feature("dedicated_server"):
 		print('I am server.')
@@ -20,12 +23,19 @@ func _ready() -> void:
 		queue_free.call_deferred()
 ## 开始游戏(读取存档并开始)
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file.call_deferred(R.current_Scene)
+	if singlePlayer:
+		get_tree().change_scene_to_file.call_deferred("res://AlexMashiro/map/map_1.tscn")
+	else:
+		get_tree().change_scene_to_file.call_deferred("res://Scenes/game_scene.tscn")
+		
 	#get_tree().change_scene_to_file.call_deferred("res://Scenes/DungeonScene/dungeon_scene.tscn")
 
 ## 同步存档(通过服务器)
 func _on_sync_pressed() -> void:
-	pass # Replace with function body.
+	$HTTPRequest.request('http://10.10.65.38:5000/')
+
+func _on_request_completed(result, response_code, headers, body):
+	$ServerInfo.text = body.get_string_from_utf8()
 
 ## 退出游戏
 func _on_exit_pressed() -> void:
@@ -40,3 +50,8 @@ func _on_server_ip_text_changed(new_text: String) -> void:
 func _on_user_name_text_changed(new_text: String) -> void:
 	R.UserName = new_text
 	R.save_config()
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	singlePlayer = !toggled_on
+	print('当前 singlePlayer ', singlePlayer)

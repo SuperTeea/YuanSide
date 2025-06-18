@@ -2,16 +2,16 @@ extends CharacterBody2D
 class_name Player
 
 #var move_speed = 100
-@export var move_speed : float = 100
+@export var move_speed = 100
 @export var push_strength: float = 10 #推力
 @export var acceleration: float = 10
 
-var is_attacking: bool = false #用来判断是否正在攻击，用来方便攻击的时候不走路dwds
+@export var grid : TileMapLayer
+
+var target_path: Array[Vector2i]
+
+var is_attacking: bool = false #用来判断是否正在攻击，用来方便攻击的时候不走路
 #var can_interat: bool = false #用来判断是否可以进行交互，防止边交互边打斗
-
-func _enter_tree() -> void:
-	set_multiplayer_authority(name.to_int())
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,19 +19,15 @@ func _ready() -> void:
 	update_hp_bar() #复活后更新生命值dd
 	#从地牢出来的时候防止被重置，所以就要加上这个
 	#if R.player_spawn_position != Vector2(0, 0):
-	position = R.player_spawn_position
+		#position = R.player_spawn_position
 	#Engine.max_fps = 15
 	#R.player_hp = 3
-	if is_multiplayer_authority():
-		$CanvasLayer.visible = false
-		$Camera2D.enabled = true
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if R.player_hp <= 0:
-		return
-	
-	if not is_multiplayer_authority():
 		return
 	
 	if not is_attacking:
@@ -41,9 +37,27 @@ func _physics_process(delta: float) -> void:
 	
 	update_treasure_label()
 	
-	#防止边攻击边对话da
+	#防止边攻击边对话
 	if Input.is_action_just_pressed("attack"): 
 		attack()
+		
+	#if Input.is_action_just_pressed("click"):
+		#var mouse_position = get_global_mouse_position()
+		#
+		#var start_coord = grid.local_to_map(global_position)
+		#var target_coord = grid.local_to_map(mouse_position)
+		#
+		#target_path = grid.astar.get_id_path(start_coord, target_coord)
+		#
+		#print(target_coord)
+		
+	if target_path and not target_path.is_empty():
+		var target_position = grid.map_to_local(target_path[0])
+		global_position = global_position.move_toward(target_position, move_speed * delta)
+		
+		if global_position == target_position:
+			target_path.remove_at(0)
+			
 	
 	move_and_slide()
 	
@@ -142,7 +156,7 @@ func die():
 #当计时器时间结束之后，场景初始化
 func _on_death_timer_timeout() -> void:
 	R.player_hp = 3 #恢复血量
-	#get_tree().call_deferred("reload_current_scene")	#复活
+	get_tree().call_deferred("reload_current_scene")	#复活
 	
 func update_hp_bar():
 	#加载生命值的代码

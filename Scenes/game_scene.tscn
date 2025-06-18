@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bm3iwwg2t8ps4"]
+[gd_scene load_steps=27 format=4 uid="uid://bm3iwwg2t8ps4"]
 
 [ext_resource type="Script" uid="uid://f1g2uwij00yl" path="res://Scenes/game_scene.gd" id="1_a7fet"]
 [ext_resource type="Texture2D" uid="uid://i6n0um6xad16" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c5t63nty2exxl" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/SpriteSheet.png" id="11_6qy3m"]
 [ext_resource type="Texture2D" uid="uid://bkjal1alewtrb" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="12_njm7v"]
 [ext_resource type="AudioStream" uid="uid://dsjks06isin2k" path="res://Ninja Adventure - Asset Pack/Musics/5 - Peaceful.ogg" id="14_bkvnf"]
+[ext_resource type="PackedScene" uid="uid://bwij3yd1by6st" path="res://NetWorks/Chat.tscn" id="15_w8jfd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -910,19 +911,22 @@ autoplay = true
 parameters/looping = true
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://bdly76li14e43")
+_spawnable_scenes = PackedStringArray("uid://c5tml4prs3kr3")
 spawn_path = NodePath("../Players")
 
 [node name="EnemySpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://doh60j5pa0ssj")
 spawn_path = NodePath("../Enemys")
 
-[node name="RefreshEnemy" type="Timer" parent="."]
-wait_time = 30.851
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Chat" parent="CanvasLayer" instance=ExtResource("15_w8jfd")]
+offset_top = -14.0
+offset_bottom = -14.0
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
-[connection signal="timeout" from="RefreshEnemy" to="." method="_on_refresh_enemy_timeout"]
+[connection signal="switch_activated" from="ObstatleLayer/Switch" to="." method="_on_switch_switch_activated"]
 
 [editable path="ObstatleLayer/NPC2"]
 [editable path="ObstatleLayer/NPC3"]

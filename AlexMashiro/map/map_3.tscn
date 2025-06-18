@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://blw75plje8mcs"]
+[gd_scene load_steps=27 format=4 uid="uid://blw75plje8mcs"]
 
 [ext_resource type="Texture2D" uid="uid://b10xuhkk4nwy5" path="res://AlexMashiro/tileset/game3/decorative.png" id="1_yn1q3"]
 [ext_resource type="Texture2D" uid="uid://c4knydsdxcv0e" path="res://AlexMashiro/tileset/game3/mainlevbuild.png" id="2_hgihd"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dclfn0641kfy6" path="res://NPC/npc.tscn" id="7_jh2ks"]
 [ext_resource type="Texture2D" uid="uid://kq4g8ruardco" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GladiatorBlue/SpriteSheet.png" id="8_3pptu"]
 [ext_resource type="Texture2D" uid="uid://bny2xs5xixnut" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GladiatorBlue/Faceset.png" id="9_0c78k"]
+[ext_resource type="PackedScene" uid="uid://chcrvauca1v8u" path="res://Character/Players/playerduan.tscn" id="10_o87hi"]
+[ext_resource type="PackedScene" uid="uid://doh60j5pa0ssj" path="res://Enemies/slime_enemy.tscn" id="14_5wpyd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gxvw"]
 texture = ExtResource("1_yn1q3")
@@ -2404,5 +2406,23 @@ text = "止步"
 
 [node name="NameLabel" parent="TileMapLayer3/NPC/CanvasLayer" index="2"]
 text = "铁甲小宝"
+
+[node name="SlimeEnemy" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(102, 43)
+
+[node name="SlimeEnemy2" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(96, 182)
+
+[node name="SlimeEnemy3" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(-110, 28)
+
+[node name="SlimeEnemy4" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(-102, -95)
+
+[node name="Player" parent="." instance=ExtResource("10_o87hi")]
+position = Vector2(480, 32)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
 
 [editable path="TileMapLayer3/NPC"]

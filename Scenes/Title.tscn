@@ -180,8 +180,33 @@ offset_right = 288.0
 offset_bottom = 94.0
 text = "tester"
 
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 571.0
+offset_right = 180.0
+offset_bottom = 598.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 568.0
+offset_right = 103.0
+offset_bottom = 596.0
+text = "多人游戏"
+
+[node name="ServerInfo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 682.0
+offset_right = 420.0
+offset_bottom = 709.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/Sync" to="." method="_on_sync_pressed"]
 [connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="text_changed" from="ServerSettings/ServerIP" to="." method="_on_server_ip_text_changed"]
 [connection signal="text_changed" from="ServerSettings/UserName" to="." method="_on_user_name_text_changed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=49 format=3 uid="uid://bdly76li14e43"]
+[gd_scene load_steps=49 format=3 uid="uid://c5tml4prs3kr3"]
 
-[ext_resource type="Script" uid="uid://dc5t8wb6syapr" path="res://Character/Players/player_1.gd" id="1_ymh3i"]
+[ext_resource type="Script" uid="uid://bali46gty4adx" path="res://Character/Players/Onlineplayer.gd" id="1_gvf5o"]
 [ext_resource type="Texture2D" uid="uid://b4at253a5e3lv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SeparateAnim/Attack.png" id="2_veno4"]
 [ext_resource type="Texture2D" uid="uid://df27rvuyhe0e4" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SeparateAnim/Walk.png" id="2_ymh3i"]
 [ext_resource type="Texture2D" uid="uid://ba8c8ykg6th1m" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SpriteSheet.png" id="3_5b4ba"]
@@ -490,14 +490,23 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Sword:visible")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath("Sword:position")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Sword:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Sword:scale")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("AnimatedSprite2D:animation")
+properties/6/spawn = true
+properties/6/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
-script = ExtResource("1_ymh3i")
-move_speed = null
-push_strength = 400.0
-acceleration = null
+script = ExtResource("1_gvf5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f1d5c")
@@ -600,13 +609,8 @@ stream = ExtResource("9_yt6oy")
 replication_config = SubResource("SceneReplicationConfig_c2h45")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(128, -33)
 enabled = false
 zoom = Vector2(5, 5)
-limit_left = -192
-limit_top = -208
-limit_right = 208
-limit_bottom = 160
 
 [connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]

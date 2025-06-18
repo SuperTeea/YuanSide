@@ -7,10 +7,11 @@ signal message_come(user, message)
 
 func _ready() -> void:
 	edit.visible = false
+	NetWork.Chat = $"."
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_T:
+		if event.keycode == KEY_BACKSLASH:
 			get_viewport().set_input_as_handled()
 			print("T was pressed")
 			print(edit.visible)
