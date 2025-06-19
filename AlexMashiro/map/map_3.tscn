@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://blw75plje8mcs"]
+[gd_scene load_steps=41 format=4 uid="uid://blw75plje8mcs"]
 
 [ext_resource type="Texture2D" uid="uid://b10xuhkk4nwy5" path="res://AlexMashiro/tileset/game3/decorative.png" id="1_yn1q3"]
 [ext_resource type="Texture2D" uid="uid://c4knydsdxcv0e" path="res://AlexMashiro/tileset/game3/mainlevbuild.png" id="2_hgihd"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bgj5krht81ugi" path="res://Switch/switch.tscn" id="17_wgepn"]
 [ext_resource type="PackedScene" uid="uid://bc3027ri8lnai" path="res://Enemies/boss_enemy.tscn" id="18_wgepn"]
 [ext_resource type="PackedScene" uid="uid://dddtdjuprywbj" path="res://PuzzleButton/single_use_puzzle_button.tscn" id="19_ynkmg"]
+[ext_resource type="Script" uid="uid://bjpua8v7fehxf" path="res://Super_Tea/Music/music_switcher.gd" id="20_8dpoc"]
+[ext_resource type="AudioStream" uid="uid://b6248xa1uq0bw" path="res://Ninja Adventure - Asset Pack/Musics/21 - Dungeon.ogg" id="21_tar3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gxvw"]
 texture = ExtResource("1_yn1q3")
@@ -2569,7 +2571,12 @@ dialogue_lines = Array[String](["想要打开上面的门", "试着打开三个�
 
 [node name="NPC3" parent="." instance=ExtResource("7_jh2ks")]
 position = Vector2(679, -264)
-dialogue_lines = Array[String](["当且仅当只打开这四个门中的两个", "你才能通向boss", "试试看"])
+dialogue_lines = Array[String](["当且仅当只打开这四个开关中的两个", "你才能通向boss", "试试看"])
+
+[node name="MusicSwitcher" type="Node" parent="."]
+script = ExtResource("20_8dpoc")
+music = ExtResource("21_tar3m")
+metadata/_custom_type_script = "uid://bjpua8v7fehxf"
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor2" method="_on_puzzle_button_pressed"]

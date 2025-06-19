@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://banwwa1ybnqxa"]
+[gd_scene load_steps=35 format=4 uid="uid://banwwa1ybnqxa"]
 
 [ext_resource type="Texture2D" uid="uid://kogeurku4dp4" path="res://AlexMashiro/tileset/game2/tileset_animated.png" id="1_0qdgi"]
 [ext_resource type="Texture2D" uid="uid://c7hfbcutqpt1r" path="res://AlexMashiro/tileset/game2/tileset_floor.png" id="2_7yqvf"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://rdcrcyhfihqu" path="res://Ninja Adventure - Asset Pack/Actor/Characters/EggBoy/SpriteSheet.png" id="12_gbjfx"]
 [ext_resource type="Texture2D" uid="uid://baouddgeq1u5w" path="res://Ninja Adventure - Asset Pack/Actor/Characters/EggBoy/Faceset.png" id="13_aldfw"]
 [ext_resource type="Texture2D" uid="uid://ctg76gkw4lp50" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Villager/SpriteSheet.png" id="14_hr6gx"]
+[ext_resource type="Script" uid="uid://bjpua8v7fehxf" path="res://Super_Tea/Music/music_switcher.gd" id="17_1yn3a"]
 [ext_resource type="Texture2D" uid="uid://cw4ft58o2fb6v" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Villager/Faceset.png" id="18_1yn3a"]
+[ext_resource type="AudioStream" uid="uid://sjv8c17fudlf" path="res://Assets/Musics/Bard_Dance.ogg" id="18_gbjfx"]
 [ext_resource type="PackedScene" uid="uid://bx8x4dhw2qkwd" path="res://SceneEntrance/scene_entrance.tscn" id="19_gbjfx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6uly"]
@@ -2312,6 +2314,11 @@ position = Vector2(11, 193)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer2/Player"]
 zoom = Vector2(5, 5)
+
+[node name="MusicSwitcher" type="Node" parent="."]
+script = ExtResource("17_1yn3a")
+music = ExtResource("18_gbjfx")
+metadata/_custom_type_script = "uid://bjpua8v7fehxf"
 
 [editable path="TileMapLayer2/NPC1"]
 [editable path="TileMapLayer2/NPC2"]

@@ -62,6 +62,11 @@ func spawn_enemy():
 		cnt += 1
 		enemys.add_child(enemy)
 	
+@rpc("any_peer","reliable",'call_remote')
+func despawn_enemy():
+	for child in enemys.get_children():
+		child.die()
+	
 # 当有客户端连入的时候
 func _on_peer_connect(id : int):
 	print('玩家连接 ID: ', id)
@@ -88,3 +93,7 @@ func setName(name : String, id : int):
 ## 开关开的时候生成怪物
 func _on_switch_switch_activated() -> void:
 	rpc_id(1,'spawn_enemy')
+
+
+func _on_switch_switch_deactivated() -> void:
+	rpc_id(1,'despawn_enemy')

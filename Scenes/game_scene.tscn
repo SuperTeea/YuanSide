@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bm3iwwg2t8ps4"]
+[gd_scene load_steps=27 format=4 uid="uid://bm3iwwg2t8ps4"]
 
 [ext_resource type="Script" uid="uid://f1g2uwij00yl" path="res://Scenes/game_scene.gd" id="1_a7fet"]
 [ext_resource type="Texture2D" uid="uid://i6n0um6xad16" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -15,8 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bkjal1alewtrb" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="12_njm7v"]
 [ext_resource type="AudioStream" uid="uid://dsjks06isin2k" path="res://Ninja Adventure - Asset Pack/Musics/5 - Peaceful.ogg" id="14_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://bwij3yd1by6st" path="res://NetWorks/Chat.tscn" id="15_w8jfd"]
-[ext_resource type="PackedScene" uid="uid://doh60j5pa0ssj" path="res://Enemies/slime_enemy.tscn" id="16_8m72m"]
-[ext_resource type="PackedScene" uid="uid://chcrvauca1v8u" path="res://Character/Players/playerduan.tscn" id="17_gtbs0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -926,18 +924,10 @@ spawn_path = NodePath("../Enemys")
 offset_top = -14.0
 offset_bottom = -14.0
 
-[node name="SlimeEnemy" parent="." instance=ExtResource("16_8m72m")]
-position = Vector2(-31, 66)
-
-[node name="Player" parent="." instance=ExtResource("17_gtbs0")]
-position = Vector2(73, 103)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
-
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 [connection signal="switch_activated" from="ObstatleLayer/Switch" to="." method="_on_switch_switch_activated"]
+[connection signal="switch_deactivated" from="ObstatleLayer/Switch" to="." method="_on_switch_switch_deactivated"]
 
 [editable path="ObstatleLayer/NPC2"]
 [editable path="ObstatleLayer/NPC3"]

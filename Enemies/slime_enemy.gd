@@ -41,7 +41,7 @@ func chase_target():
 		velocity = velocity.move_toward(direction_normal * speed, acceleration)
 
 func _on_player_detect_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player: #当进入监测区的东西是玩家时
+	if body is Player or body is OnlinePlayer: #当进入监测区的东西是玩家时
 		target = body
 		
 func take_damage():
