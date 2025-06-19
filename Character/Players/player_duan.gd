@@ -3,7 +3,7 @@ class_name Player
 
 #var move_speed = 100
 @export var move_speed = 100
-@export var push_strength: float = 10 #推力
+@export var push_strength: float = 200 #推力
 @export var acceleration: float = 10
 
 @export var grid : TileMapLayer

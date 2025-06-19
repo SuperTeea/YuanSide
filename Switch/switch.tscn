@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgj5krht81ugi"]
 
-[ext_resource type="Script" uid="uid://ci75u2snp2t6l" path="res://Scenes/Switch/switch.gd" id="1_c5yrt"]
+[ext_resource type="Script" uid="uid://ci75u2snp2t6l" path="res://Switch/switch.gd" id="1_c5yrt"]
 [ext_resource type="Texture2D" uid="uid://btk7b2lfubwhk" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_g65jv"]
 [ext_resource type="AudioStream" uid="uid://cgdk8q74afmck" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Magic1.wav" id="3_sln40"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://blw75plje8mcs"]
+[gd_scene load_steps=39 format=4 uid="uid://blw75plje8mcs"]
 
 [ext_resource type="Texture2D" uid="uid://b10xuhkk4nwy5" path="res://AlexMashiro/tileset/game3/decorative.png" id="1_yn1q3"]
 [ext_resource type="Texture2D" uid="uid://c4knydsdxcv0e" path="res://AlexMashiro/tileset/game3/mainlevbuild.png" id="2_hgihd"]
@@ -10,7 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://kq4g8ruardco" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GladiatorBlue/SpriteSheet.png" id="8_3pptu"]
 [ext_resource type="Texture2D" uid="uid://bny2xs5xixnut" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GladiatorBlue/Faceset.png" id="9_0c78k"]
 [ext_resource type="PackedScene" uid="uid://chcrvauca1v8u" path="res://Character/Players/playerduan.tscn" id="10_o87hi"]
+[ext_resource type="PackedScene" uid="uid://uftrldife2b3" path="res://PuzzleButton/puzzle_button.tscn" id="12_o87hi"]
+[ext_resource type="PackedScene" uid="uid://dxpwy5ryojl27" path="res://Block/block.tscn" id="13_5wpyd"]
 [ext_resource type="PackedScene" uid="uid://doh60j5pa0ssj" path="res://Enemies/slime_enemy.tscn" id="14_5wpyd"]
+[ext_resource type="PackedScene" uid="uid://cd3d5586do8xf" path="res://LockedDoor/locked_door.tscn" id="14_cpax2"]
+[ext_resource type="PackedScene" uid="uid://b7e60iui8n7x8" path="res://TreasureChest/treasure_chest.tscn" id="15_cpax2"]
+[ext_resource type="PackedScene" uid="uid://d1p2ncu5vmvem" path="res://Switch/switch_puzzle_manager.tscn" id="16_jfy4v"]
+[ext_resource type="PackedScene" uid="uid://bgj5krht81ugi" path="res://Switch/switch.tscn" id="17_wgepn"]
+[ext_resource type="PackedScene" uid="uid://bc3027ri8lnai" path="res://Enemies/boss_enemy.tscn" id="18_wgepn"]
+[ext_resource type="PackedScene" uid="uid://dddtdjuprywbj" path="res://PuzzleButton/single_use_puzzle_button.tscn" id="19_ynkmg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gxvw"]
 texture = ExtResource("1_yn1q3")
@@ -2376,6 +2384,18 @@ sources/6 = SubResource("TileSetAtlasSource_b5rda")
 atlas = ExtResource("8_3pptu")
 region = Rect2(0, 0, 16.7821, 17.763)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpax2"]
+size = Vector2(17, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h2q1"]
+size = Vector2(17, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfy4v"]
+size = Vector2(81, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgepn"]
+size = Vector2(81, 13)
+
 [node name="Map3" type="Node2D"]
 position = Vector2(-447, 443)
 
@@ -2420,9 +2440,163 @@ position = Vector2(-110, 28)
 position = Vector2(-102, -95)
 
 [node name="Player" parent="." instance=ExtResource("10_o87hi")]
+z_index = 100
 position = Vector2(480, 32)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)
+
+[node name="PuzzleButton" parent="." instance=ExtResource("12_o87hi")]
+position = Vector2(625, 28)
+
+[node name="Block" parent="." instance=ExtResource("13_5wpyd")]
+position = Vector2(684, 28)
+linear_damp = 3.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(603, 30)
+shape = SubResource("RectangleShape2D_cpax2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(702, 30)
+shape = SubResource("RectangleShape2D_2h2q1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(652.5, 6)
+shape = SubResource("RectangleShape2D_jfy4v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(652.5, 54)
+shape = SubResource("RectangleShape2D_wgepn")
+
+[node name="LockedDoor" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(794, 73)
+buttons_needed = 1
+
+[node name="LockedDoor2" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(817, 73)
+buttons_needed = 1
+
+[node name="LockedDoor3" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(840, 73)
+buttons_needed = 1
+
+[node name="NPC" parent="." instance=ExtResource("7_jh2ks")]
+position = Vector2(797, 15)
+dialogue_lines = Array[String](["想要打开下面的门", "试着找一找开关", "我相信你"])
+
+[node name="TreasureChest" parent="." instance=ExtResource("15_cpax2")]
+position = Vector2(747, -632)
+
+[node name="LockedDoor4" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(894, -285)
+
+[node name="LockedDoor5" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(917, -285)
+
+[node name="SwitchPuzzleManager" parent="." instance=ExtResource("16_jfy4v")]
+position = Vector2(0, -42)
+target_score = 2
+
+[node name="Switch" parent="." instance=ExtResource("17_wgepn")]
+position = Vector2(762, -265)
+
+[node name="Switch2" parent="." instance=ExtResource("17_wgepn")]
+position = Vector2(794, -265)
+
+[node name="Switch3" parent="." instance=ExtResource("17_wgepn")]
+position = Vector2(824, -265)
+
+[node name="Switch4" parent="." instance=ExtResource("17_wgepn")]
+position = Vector2(854, -265)
+
+[node name="TreasureChest2" parent="." instance=ExtResource("15_cpax2")]
+position = Vector2(1137, 85)
+
+[node name="SlimeEnemy5" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(671, 256)
+
+[node name="SlimeEnemy6" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(1105, 208)
+
+[node name="SlimeEnemy7" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(1222, 307)
+
+[node name="SlimeEnemy8" parent="." instance=ExtResource("18_wgepn")]
+position = Vector2(903, -530)
+HP = 20
+
+[node name="SlimeEnemy9" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(-54, -310)
+
+[node name="SlimeEnemy10" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(-184, -208)
+
+[node name="SlimeEnemy11" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(-116, 282)
+
+[node name="SlimeEnemy12" parent="." instance=ExtResource("14_5wpyd")]
+position = Vector2(844, 35)
+
+[node name="SingleUsePuzzleButton" parent="." instance=ExtResource("19_ynkmg")]
+position = Vector2(-187, -310)
+
+[node name="SingleUsePuzzleButton2" parent="." instance=ExtResource("19_ynkmg")]
+position = Vector2(75, 295)
+
+[node name="SingleUsePuzzleButton3" parent="." instance=ExtResource("19_ynkmg")]
+position = Vector2(1237, 193)
+
+[node name="LockedDoor6" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(459, -48)
+buttons_needed = 3
+
+[node name="LockedDoor7" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(480, -47)
+buttons_needed = 3
+
+[node name="LockedDoor8" parent="." instance=ExtResource("14_cpax2")]
+position = Vector2(500, -47)
+buttons_needed = 3
+
+[node name="NPC2" parent="." instance=ExtResource("7_jh2ks")]
+position = Vector2(420, -27)
+dialogue_lines = Array[String](["想要打开上面的门", "试着打开三个按钮", "你会有惊喜"])
+
+[node name="NPC3" parent="." instance=ExtResource("7_jh2ks")]
+position = Vector2(679, -264)
+dialogue_lines = Array[String](["当且仅当只打开这四个门中的两个", "你才能通向boss", "试试看"])
+
+[connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="PuzzleButton" to="LockedDoor2" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="PuzzleButton" to="LockedDoor3" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
+[connection signal="unpressed" from="PuzzleButton" to="LockedDoor2" method="_on_puzzle_button_unpressed"]
+[connection signal="unpressed" from="PuzzleButton" to="LockedDoor3" method="_on_puzzle_button_unpressed"]
+[connection signal="puzzle_failed" from="SwitchPuzzleManager" to="LockedDoor4" method="_on_puzzle_button_unpressed"]
+[connection signal="puzzle_failed" from="SwitchPuzzleManager" to="LockedDoor5" method="_on_puzzle_button_unpressed"]
+[connection signal="puzzle_solved" from="SwitchPuzzleManager" to="LockedDoor4" method="_on_puzzle_button_pressed"]
+[connection signal="puzzle_solved" from="SwitchPuzzleManager" to="LockedDoor5" method="_on_puzzle_button_pressed"]
+[connection signal="switch_activated" from="Switch" to="SwitchPuzzleManager" method="increase_score"]
+[connection signal="switch_deactivated" from="Switch" to="SwitchPuzzleManager" method="decrease_score"]
+[connection signal="switch_activated" from="Switch2" to="SwitchPuzzleManager" method="decrease_score"]
+[connection signal="switch_deactivated" from="Switch2" to="SwitchPuzzleManager" method="increase_score"]
+[connection signal="switch_activated" from="Switch3" to="SwitchPuzzleManager" method="increase_score"]
+[connection signal="switch_deactivated" from="Switch3" to="SwitchPuzzleManager" method="decrease_score"]
+[connection signal="switch_activated" from="Switch4" to="SwitchPuzzleManager" method="decrease_score"]
+[connection signal="switch_deactivated" from="Switch4" to="SwitchPuzzleManager" method="increase_score"]
+[connection signal="pressed" from="SingleUsePuzzleButton" to="LockedDoor6" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton" to="LockedDoor7" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton" to="LockedDoor8" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton2" to="LockedDoor6" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton2" to="LockedDoor7" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton2" to="LockedDoor8" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton3" to="LockedDoor6" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton3" to="LockedDoor7" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="SingleUsePuzzleButton3" to="LockedDoor8" method="_on_puzzle_button_pressed"]
 
 [editable path="TileMapLayer3/NPC"]

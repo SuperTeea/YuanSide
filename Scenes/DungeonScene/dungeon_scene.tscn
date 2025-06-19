@@ -1,6 +1,5 @@
 [gd_scene load_steps=19 format=4 uid="uid://dktnqmxu0wrts"]
 
-[ext_resource type="PackedScene" uid="uid://bdly76li14e43" path="res://Character/Players_gu/playergu.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://bx8x4dhw2qkwd" path="res://SceneEntrance/scene_entrance.tscn" id="2_okyhq"]
 [ext_resource type="Texture2D" uid="uid://b66oab3pkdx6w" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_sx8ki"]
 [ext_resource type="Texture2D" uid="uid://cx160a1uyer42" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="4_6f4q3"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxpwy5ryojl27" path="res://Block/block.tscn" id="6_n5fck"]
 [ext_resource type="PackedScene" uid="uid://dddtdjuprywbj" path="res://PuzzleButton/single_use_puzzle_button.tscn" id="6_u35dq"]
 [ext_resource type="PackedScene" uid="uid://bd8gcsqs2bvvf" path="res://Block/ice_block.tscn" id="8_odg1s"]
+[ext_resource type="PackedScene" uid="uid://chcrvauca1v8u" path="res://Character/Players/playerduan.tscn" id="10_r5l8u"]
 [ext_resource type="PackedScene" uid="uid://d1p2ncu5vmvem" path="res://Switch/switch_puzzle_manager.tscn" id="11_g75ix"]
 [ext_resource type="PackedScene" uid="uid://bgj5krht81ugi" path="res://Switch/switch.tscn" id="11_nqymn"]
 [ext_resource type="PackedScene" uid="uid://b7e60iui8n7x8" path="res://TreasureChest/treasure_chest.tscn" id="13_x00t5"]
@@ -863,10 +863,11 @@ position = Vector2(-124, 21)
 [node name="Block2" parent="." instance=ExtResource("6_n5fck")]
 position = Vector2(-165, -19)
 
-[node name="Player" parent="." instance=ExtResource("1_xuufh")]
+[node name="Player2" parent="." instance=ExtResource("10_r5l8u")]
+position = Vector2(0, 5)
 
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-position = Vector2(8, 7)
+[node name="Camera2D2" type="Camera2D" parent="Player2"]
+position = Vector2(8, 2)
 zoom = Vector2(5, 5)
 
 [node name="Block3" parent="." instance=ExtResource("8_odg1s")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7e60iui8n7x8"]
 
-[ext_resource type="Script" uid="uid://rm28rtt1ytvr" path="res://Scenes/TreasureChest/treasure_chest.gd" id="1_2tkyh"]
+[ext_resource type="Script" uid="uid://rm28rtt1ytvr" path="res://TreasureChest/treasure_chest.gd" id="1_2tkyh"]
 [ext_resource type="Texture2D" uid="uid://c2ifobr13fj35" path="res://Ninja Adventure - Asset Pack/Items/Treasure/BigTreasureChest.png" id="1_v1qrq"]
 [ext_resource type="Texture2D" uid="uid://cc6l14pnd4kkh" path="res://Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_sdjdt"]
 [ext_resource type="AudioStream" uid="uid://d310kj2pcmshn" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Bonus.wav" id="4_2a6ve"]

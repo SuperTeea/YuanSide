@@ -200,7 +200,6 @@ shape = SubResource("CircleShape2D_5uyk1")
 sprite_frames = SubResource("SpriteFrames_1u7tg")
 animation = &"move_down"
 autoplay = "default"
-frame_progress = 0.332398
 
 [node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_sv1en")

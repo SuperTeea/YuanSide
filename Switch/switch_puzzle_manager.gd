@@ -7,15 +7,17 @@ signal puzzle_solved
 signal puzzle_failed
 
 func increase_score():
-	score += 1
-	print(score)
-	
-	if score >= target_score:
-		puzzle_solved.emit()
+	puzzle_solved.emit()
+
 
 func decrease_score():
-	score -= 1
-	print(score)
-	
-	if score < target_score:
-		puzzle_failed.emit()
+	puzzle_failed.emit()
+
+		#
+#func refresh():
+	#if score >= target_score:
+		#print('emitted solved')
+		#
+	#if score < target_score:
+		#print('emitted unsolved')
+		#
